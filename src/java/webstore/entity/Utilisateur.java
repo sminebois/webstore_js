@@ -30,14 +30,23 @@ public class Utilisateur implements Serializable {
     private String adresse;
     @OneToMany(mappedBy = "client")
     private List<Commande> lcommande;
+    private Type utilType;
     
-    private enum Type{
+    public enum Type{
         ADMIN,
         EXPEDITEUR,
         NORMAL;
     }
-
     
+
+    public Type getUtilType() {
+        return utilType;
+    }
+
+    public void setUtilType(Type utilType) {
+        this.utilType = utilType;
+    }
+        
     public List<Commande> getLcommande() {
         return lcommande;
     }
@@ -100,7 +109,26 @@ public class Utilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "webstore.entity.Utilisateur[ id=" + id + " ]";
+        return "webstore.entity.Utilisateur[ id=" + id + " nom=" + this.login + " ]";
     }
+
+    public Utilisateur() {
+    }
+
+    public Utilisateur(String login, String mdp, String adresse) {
+        this.login = login;
+        this.mdp = mdp;
+        this.adresse = adresse;
+        this.utilType = Type.NORMAL;
+    }
+    
+    public Utilisateur(String login, String mdp){
+        this.login = login;
+        this.mdp = mdp;
+        this.utilType = Type.NORMAL;
+    }
+    
+    
+    
     
 }

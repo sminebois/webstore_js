@@ -8,22 +8,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <a href='home.jsp'>Page d'accueil</a>
-<a class="liensmenu" href="film_liste">Films</a>
-<a class="liensmenu" href="serie_liste">Séries</a>
 <c:choose>   
 
-    <c:when test="${utilconnecte.type=='ADMIN'}">
+    <c:when test="${utilconnecte.utilType=='ADMIN'}">
 
-        <a class="liensmenu" href="form">Ajouter film</a>
-        <a class="liensmenu" href="form_serie">Ajouter série</a>
+        <a href="ajout_article">Ajouter article</a>
+        <a href="stock">Stock</a>
+    </c:when>
+    <c:when test="${utilconnecte.utilType=='EXPEDITEUR'}">
+        <a href="commandes">Voir commandes</a>
     </c:when>
 </c:choose>
+
 <c:choose>
-    <c:when test="${utilconnecte.nom==null}">
+    <c:when test="${utilconnecte.login==null}">
 
         <a class="liensmenu" href="connect">Connexion</a>
     </c:when>
     <c:otherwise>
+        <a href="articles">Voir articles</a>
         <a class="liensmenu" href="deconnect">Déconnexion</a>
     </c:otherwise>
 </c:choose>

@@ -96,5 +96,16 @@ public class Article implements Serializable {
     public String toString() {
         return "webstore.entity.Article[ id=" + id + " ]";
     }
+
+    public Article() {
+    }
+
+    public Article(String nom, int stock, int prix) {
+        this.nom = nom;
+        this.stock = stock;
+        this.prix = prix;
+    }
+    
+    
     
 }
