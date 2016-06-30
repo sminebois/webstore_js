@@ -40,6 +40,10 @@ public class ArticlesServlet extends HttpServlet {
         if(req.getSession().getAttribute("commande") != null){
             cmd = (Commande) req.getSession().getAttribute("commande");
         }
+        if(cmd.getLarticle() != null){
+            lart = cmd.getLarticle();
+        }
+        
         //ajout du nombre voulu d'articles
         for(int i = 0; i < Integer.parseInt(req.getParameter("qtt")); i++){
             Article a = new ArticleService().getArticleById(Integer.parseInt(req.getParameter("id")));            

@@ -11,12 +11,15 @@
 <c:choose>   
 
     <c:when test="${utilconnecte.utilType=='ADMIN'}">
-
+        <a href="panier">Voir panier</a>
         <a href="ajout_article">Ajouter article</a>
         <a href="stock">Stock</a>
     </c:when>
     <c:when test="${utilconnecte.utilType=='EXPEDITEUR'}">
         <a href="commandes">Voir commandes</a>
+    </c:when>
+    <c:when test="${utilconnecte.utilType=='NORMAL'}">
+        <a href="panier">Voir panier</a>
     </c:when>
 </c:choose>
 
@@ -26,7 +29,7 @@
         <a class="liensmenu" href="connect">Connexion</a>
     </c:when>
     <c:otherwise>
-        <a href="articles">Voir articles</a>
+        <a href="articles">Boutique</a>
         <a class="liensmenu" href="deconnect">Déconnexion</a>
     </c:otherwise>
 </c:choose>
