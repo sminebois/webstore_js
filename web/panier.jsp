@@ -24,10 +24,26 @@
                 <c:when test="${utilconnecte.login!=null}">
                     <h1>Mon panier</h1>
                     <c:forEach items="${larticle}" var="art">
-                        ${art.nom}<br>
-                        
+                        ${art.nom} ${art.prix} €<br>
                         
                     </c:forEach>
+                    <br>
+                    <strong>Total : </strong>${total} €<br>
+                    
+                    <c:choose>
+                        <c:when test="${larticle != null}">
+                            <form method="post">
+                                <input type="hidden" value="true" name="validation">
+                                <input type="submit" value="Passer commande">
+                            </form>
+                            <form method="post">
+                                <input type="hidden" value="false" name="validation">
+                                <input type="submit" value="Vider mon panier">
+                            </form>
+                        </c:when>
+                    </c:choose>
+                    
+                    
                 </c:when>
             </c:choose>
         </div>

@@ -35,4 +35,11 @@ public class ArticleService {
         a.setStock(a.getStock() - quantite);
         new ArticleDAO().modiferArticle(a);
     }
+    
+    public void ajouterQuantiteArticle(int quantite, long id){
+        Article a = new ArticleDAO().getArticleById(id);
+        a.setStock(a.getStock() + quantite);
+        new ArticleDAO().modiferArticle(a);
+    }
+    
 }

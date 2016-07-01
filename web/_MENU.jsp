@@ -14,6 +14,7 @@
         <a href="panier">Voir panier</a>
         <a href="ajout_article">Ajouter article</a>
         <a href="stock">Stock</a>
+        <a href="commandes">Voir commandes</a>
     </c:when>
     <c:when test="${utilconnecte.utilType=='EXPEDITEUR'}">
         <a href="commandes">Voir commandes</a>

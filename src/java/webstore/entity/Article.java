@@ -98,12 +98,14 @@ public class Article implements Serializable {
     }
 
     public Article() {
+        this.lcommande = null;
     }
 
     public Article(String nom, int stock, int prix) {
         this.nom = nom;
         this.stock = stock;
         this.prix = prix;
+        this.lcommande = null;
     }
     
     
