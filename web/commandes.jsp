@@ -25,9 +25,12 @@
                     <h1>Commandes</h1>
                     <c:forEach items="${lcommande}" var="cmd">
                         <strong>${cmd.client.login}</strong> | ${cmd.dateCommande} | ${cmd.total} €<br>
+                        ${cmd.client.adresse}<br>
+                        <ul>
                         <c:forEach items="${cmd.larticle}" var="art">
-                              - ${art.nom}<br>
+                            <li>${art.nom}</li>
                         </c:forEach>
+                        </ul>
                         <br>
                     </c:forEach>                    
                     
