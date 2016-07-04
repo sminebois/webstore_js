@@ -16,22 +16,145 @@ and open the template in the editor.
 
 
     <body>
+
+        <div>
+            <h1>Choucroute Party !</h1>
+
+            <p id="para">
+                Ce texte est trop cool, lit le avec <strong>attention !</strong><br>
+                Bla bla <strong>bla bla</strong> bla, lorem ipsum et pater noster amen habemus papam youplaboum<br>
+                Le site que j'ai récemment créer : <a href="http://www.google.ru">google</a>
+            </p>
+            Les composants essentiels de la vie :
+            <ul>
+                <li>Le carbone</li>
+                <li>Le fromage</li>
+                <li>La bière</li>
+                <li>Le pain</li>
+            </ul>
+
+            <br> L'échelle du bricolage : (par ordre croissant) 
+            <ol>
+                <li>Leroy Merlin</li>
+                <li>Rotor simple</li>
+                <li>Rotor double</li>
+                <li>Point P</li>
+                <li>Le gouvernement Belge</li>
+                <li>Un bidonville standart</li>
+                <li>Un bidonville 2 mois aprés une catastrophe naturelle</li>
+                <li>Le Javascript</li>
+            </ol>
+            <table id="tablo" border="1">
+                <tr>
+                    <td>a1</td>
+                    <td>a2</td>
+                </tr>
+                <tr>
+                    <td>b1</td>
+                    <td>b2</td>
+                </tr>
+
+            </table>
+            <input type="button" onclick="addLine()" value="ajouter ligne">
+
+            <br>
+            <h2>Tirage au sort</h2>
+            <p id="nb">
+                null
+            </p>
+            <input type="button" id="btal" onclick="rd()" value="Jouer">
+            <br><br>
+            <table id="tabdyn" border="1">                
+            </table>
+            <input type="button" onclick="creerTab()" value="Créer un tableau">
+            <br>
+            ********************************************<br>
+            <select id="selectionMenu">
+                <option>Cassoulet</option>
+                <option>Paté de croutes</option>
+                <option>Gelée a la menthe</option>
+                <option>Poisson pané sans gout</option>                
+            </select> 
+            <input type="button" onclick="supprimerSelection()" value="Supprimer la sélection">
+            <br>*************************************************************************
+            <br><input type="button" onclick="afficherImg()" value="Afficher une image aléatoirement">
+            <div id="div1">
+                
+            </div>
+            
+
+        </div>
         <script>
-            var square = function (x) {
-                return x * x;
-            };
-            var mult = function (f1, f2) {
-                return function (n) {
-                    return f1(n) * f2(n);
+            document.getElementById("para").style.color = "red";
+            function addLine() {
+                var tab = document.getElementById("tablo");
+                var row = tab.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+
+                cell1.innerHTML = "x1";
+                cell2.innerHTML = "x2";
+
+            }
+
+            function rd() {
+                document.getElementById("btal").value = "Rejouer";
+                
+                var nb = getRandom(1, 12)
+                
+                document.getElementById("nb").textContent = nb;
+            }
+
+            function creerTab() {
+                var nbligne = window.prompt("Entrez le nombre de lignes");
+                var nbcol = window.prompt("Entrez le nombre de colonnes");
+
+                var tab = document.getElementById("tabdyn");
+
+                for (var ii = 0; ii < parseInt(nbligne, 10); ii++) {
+                    var row = tab.insertRow(ii);
+                    for (var j = 0; j < parseInt(nbcol, 10); j++) {
+                        var cell = row.insertCell(j);
+                        cell.innerHTML = ii + " " + j;
+
+                    }
                 }
-            };
-            var foo = mult(square, square), value = foo(2);
-            console.log(value);
+            }
 
-
-
+            function supprimerSelection() {
+                var v = document.getElementById("selectionMenu");
+                v.remove(v.selectedIndex);
+            }
+            
+            function afficherImg(){
+                document.getElementById("div1").innerHTML = ""
+                                
+                var nb = getRandom(0, tab.length - 1)                
+                
+                var div = document.getElementById("div1").appendChild(tab[nb])
+            }          
+            
+            
+            (function chargerImg(){
+                image1 = document.createElement("img");
+                image1.src = "https://media.giphy.com/media/SSmDlehhBmGvm/giphy.gif"
+                
+                image2 = document.createElement("img");
+                image2.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Male_mallard_standing.jpg/220px-Male_mallard_standing.jpg"
+                
+                image3 = document.createElement("img");
+                image3.src = "http://www.flyfighterjet.name/images/mig-31-foxhound.jpg"
+                
+                image4 = document.createElement("img");
+                image4.src = "http://img.anxa.com/dossiers/patate.jpg"
+                
+                tab = [image1, image2, image3, image4];
+            })();           
+            
+            function getRandom(min, max){
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
 
         </script>
-        <div>TODO write content</div>
     </body>
 </html>
