@@ -31,7 +31,7 @@ public class ArticleDAO {
         EntityManager em = Persistence.createEntityManagerFactory("PU").createEntityManager();
         em.getTransaction().begin();
         em.merge(a);
-        em.getTransaction().commit();
+        em.getTransaction().commit();        
     }
 
     public Article getArticleById(long id) {

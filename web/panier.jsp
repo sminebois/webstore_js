@@ -24,8 +24,7 @@
                 <c:when test="${utilconnecte.login!=null}">
                     <h1>Mon panier</h1>
                     <c:forEach items="${larticle}" var="art">
-                        ${art.nom} ${art.prix} €<br>
-                        
+                        ${art.nom} ${art.prix} €<br>                        
                     </c:forEach>
                     <br>
                     <strong>Total : </strong>${total} €<br>
