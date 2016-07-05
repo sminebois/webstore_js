@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Puzzle</h1>
+            <div id="ztest">
+
+            </div>
+
+            <table id="tabAfficher">
+                <tr id="tabl0">
+                    <td id="tabl0c0" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl0c1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl0c2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl0c3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>    
+                <tr id="tabl1">
+                    <td id="tabl1c0" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl1c1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl1c2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl1c3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr id="tabl2">
+                    <td id="tabl2c0" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl2c1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl2c2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl2c3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+                <tr id="tabl3">
+                    <td id="tabl3c0" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl3c1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl3c2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                    <td id="tabl3c3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                </tr>
+            </table>    
+            <br>
+            <input type="button" onclick="comparer()" value="Comparer">
+
+
+            <table id="rep" hidden="">
+                <tr>
+                    <td><img src = "./mig31-img/mig31-0-0.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-0-1.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-0-2.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-0-3.jpeg"></td>
+                </tr>
+                <tr>
+                    <td><img src = "./mig31-img/mig31-1-0.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-1-1.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-1-2.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-1-3.jpeg"></td>
+                </tr>
+                <tr>
+                    <td><img src = "./mig31-img/mig31-2-0.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-2-1.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-2-2.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-2-3.jpeg"></td>
+                </tr>
+                <tr>
+                    <td><img src = "./mig31-img/mig31-3-0.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-3-1.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-3-2.jpeg"></td>
+                    <td><img src = "./mig31-img/mig31-3-3.jpeg"></td>
+                </tr>                
+            </table>
+
+
+        </div>
+
+        <script>
+            
+            var tabSoluce;
+
+            (function chargerImg() {
+
+                var tabImg = [
+                    [{
+                            src: "./mig31-img/mig31-0-0.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-0-1.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-0-2.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-0-3.jpeg",
+                            width: "300",
+                            height: "200"
+                        }], //ligne 1
+                    [{
+                            src: "./mig31-img/mig31-1-0.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-1-1.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-1-2.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-1-3.jpeg",
+                            width: "300",
+                            height: "200"
+                        }], //ligne 2
+                    [{
+                            src: "./mig31-img/mig31-2-0.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-2-1.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-2-2.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-2-3.jpeg",
+                            width: "300",
+                            height: "200"
+                        }], //ligne 3
+                    [{
+                            src: "./mig31-img/mig31-3-0.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-3-1.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-3-2.jpeg",
+                            width: "300",
+                            height: "200"
+                        }, {
+                            src: "./mig31-img/mig31-3-3.jpeg",
+                            width: "300",
+                            height: "200"
+                        }]
+                ];
+
+                genererTab(tabImg);
+            })();
+
+            function genererTab(tabP) {
+                var imgBuffer = [];
+                var nbLigne = tabP.length;
+                var nbCol = tabP[0].length;
+
+                for (var i = 0; i < nbLigne; i++) {
+                    imgBuffer.push([]);
+                    for (var j = 0; j < nbCol; j++) {
+                        imgBuffer[i][j] = new Image();
+                        imgBuffer[i][j].src = tabP[i][j].src;
+                        imgBuffer[i][j].width = tabP[i][j].width;
+                        imgBuffer[i][j].height = tabP[i][j].height;
+                        imgBuffer[i][j].id = "img" + i + j;
+                        imgBuffer[i][j].draggable = "true";
+                        imgBuffer[i][j].ondragstart = "drag(event)";
+                    }
+                }
+                tabSoluce = imgBuffer;
+
+                //imgBuffer = melangerTab(imgBuffer);
+
+                //affichage du tableau                
+                afficherTab(imgBuffer);
+            }
+
+            function melangerTab(tb) {
+                var nbLigne = tb.length;
+                var nbCol = tb[0].length;
+                var temp;
+                var rdx, rdy;
+
+                for (var i = 0; i < nbCol; i++) {
+                    for (var j = 0; j < nbLigne; j++) {
+                        rdx = getRandom(0, nbLigne - 1);
+                        rdy = getRandom(0, nbCol - 1);
+
+                        temp = tb[i][j];
+                        tb[i][j] = tb[rdx][rdy];
+                        tb[rdx][rdy] = temp;
+                    }
+                }
+                return tb;
+            }
+
+            function parcourirTab(tb) {
+                var nbLigne = tb.length;
+                var nbCol = tb[0].length;
+
+                for (var i = 0; i < nbCol; i++) {
+                    for (var j = 0; j < nbLigne; j++) {
+                        tb[i][j];
+                    }
+                }
+            }
+
+            function afficherTab(tb) {
+                var nbLigne = tb.length;
+                var nbCol = tb[0].length;
+                var strId;
+
+                for (var i = 0; i < nbCol; i++) {
+                    for (var j = 0; j < nbLigne; j++) {
+                        strId = "tabl" + i + "c" + j;
+                        document.getElementById(strId).innerHTML = "";
+                        document.getElementById(strId).appendChild(tb[i][j]);
+                    }
+                }
+            }
+
+            function getRandom(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min)
+            }
+            
+            function comparer(){
+                var tabAff = [];                
+                var strId;
+                var nbLigne = tabSoluce.length;
+                var nbCol = tabSoluce[0].length;
+
+                for (var i = 0; i < nbCol; i++) {
+                    tabAff.push([]);
+                    for (var j = 0; j < nbLigne; j++) {
+                        strId = "tabl" + i + "c" + j;
+                        tabAff[i][j] = document.getElementById(strId)                        
+                    }
+                }
+                
+                if(tabAff === tabSoluce){
+                    alert("Bingo !")
+                }else{
+                    alert("Pas bon");
+                    console.log(tabAff)
+                    console.log(tabSoluce)
+                }
+                
+            }
+
+            // DRAG AND DROOOOOOOOOOOOOOOOOP
+
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+
+
+        </script>
+
+
+    </body>
+</html>
